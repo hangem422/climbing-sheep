@@ -1,0 +1,17 @@
+{
+  "name": "climbing-sheep",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "./node_modules/serve/bin/serve.js src"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
