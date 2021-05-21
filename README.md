@@ -34,4 +34,4 @@
 
 - 양의 추가 삭제 과정 성능 향상
 
-  - 연결 리스트를 사용하여 구현해 `Array.prototype.splice` 사용을 배제
+  - 연결 리스트를 구현해 `Array.prototype.splice` 사용을 배제

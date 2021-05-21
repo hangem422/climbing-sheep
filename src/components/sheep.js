@@ -33,7 +33,7 @@ class Sheep {
   draw(ctx, t, curves) {
     this.point.x -= this.speed;
     const curve = this.getCurrentCurve(curves);
-    if (curve) this.point = curve.getPoointFronX(this.point.x);
+    if (curve) this.point = curve.getPointFromX(this.point.x);
 
     if (t - this.time > this.fpsTime) {
       this.time = t;

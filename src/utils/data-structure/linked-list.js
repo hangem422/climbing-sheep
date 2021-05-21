@@ -91,10 +91,3 @@ class LinkedList {
 }
 
 export default LinkedList;
-
-/*
-linked-list.js:59 Uncaught ReferenceError: The value "from" must be less than the value "to"
-    at LinkedList.generateNodes (linked-list.js:59)
-    at SheepController.draw (sheep-controller.js:63)
-    at App.animate (App.js:53)
-*/

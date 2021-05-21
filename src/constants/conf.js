@@ -36,6 +36,9 @@ export const sunConf = {
   RADIUS: 200,
   COLOR: '#ffb200',
   OFFSET: { right: 140, top: 100 },
+  DENSITY: 60,
+  INTENSITY: 5,
+  FPS: 30,
 };
 
 const deepFreeaze = (target) => {

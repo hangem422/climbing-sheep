@@ -13,6 +13,9 @@ class App {
     this.sun = new Sun(sunConf.RADIUS, {
       color: sunConf.COLOR,
       offset: sunConf.OFFSET,
+      density: sunConf.DENSITY,
+      intensity: sunConf.INTENSITY,
+      fps: sunConf.FPS,
     });
 
     this.hillController = new HillController(

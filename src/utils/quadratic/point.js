@@ -12,6 +12,14 @@ class Point {
     return new Point(x, y);
   }
 
+  static getCirclePoint(radius, t) {
+    const radian = 360 * t * (Math.PI / 180);
+    const x = Math.cos(radian) * radius;
+    const y = Math.sin(radian) * radius;
+
+    return new Point(x, y);
+  }
+
   moveTo(x = this.x, y = this.y) {
     this.x = x;
     this.y = y;
