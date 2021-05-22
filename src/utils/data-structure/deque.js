@@ -7,22 +7,35 @@ class Deque {
     this.length = 0;
   }
 
+  /**
+   * @description 맨 앞의 값을 가져옵니다.
+   */
   get front() {
     if (this.head) return this.head.value;
     return undefined;
   }
 
+  /**
+   * @description 맨 뒤의 값을 가져옵니다.
+   */
   get back() {
     if (this.tail) return this.tail.value;
     return undefined;
   }
 
+  /**
+   * @description 모든 값을 삭제합니다.
+   */
   clear() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
+  /**
+   * @description 맨 앞에 값을 삽입합니다.
+   * @param {*} value
+   */
   pushFront(value) {
     const node = new Node(value);
 
@@ -37,6 +50,10 @@ class Deque {
     this.length += 1;
   }
 
+  /**
+   * @description 맨 뒤에 값을 삽입합니다.
+   * @param {*} value
+   */
   pushBack(value) {
     const node = new Node(value);
 
@@ -51,6 +68,9 @@ class Deque {
     this.length += 1;
   }
 
+  /**
+   * @description 맨 앞의 값을 추출합니다.
+   */
   popFront() {
     if (this.length === 0) return undefined;
 
@@ -64,6 +84,9 @@ class Deque {
     return temp.value;
   }
 
+  /**
+   * @description 맨 뒤의 값을 추출합니다.
+   */
   popBack() {
     if (this.length === 0) return undefined;
 
@@ -77,6 +100,12 @@ class Deque {
     return temp.value;
   }
 
+  /**
+   * @description 원하는 시작점부터 값을 순회하는 Generator를 생성합니다.
+   * @param {number} from 시작 인덱스
+   * @param {number} to 종료 인덱스
+   * @returns {Generator}
+   */
   generateValues(from = 0, to = this.length) {
     if (to > this.length) {
       const message = 'The value "to" must be less than or equal to the length';

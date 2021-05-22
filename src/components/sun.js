@@ -1,5 +1,22 @@
 import Point from '../utils/quadratic/point.js';
 
+/**
+ * @description 태양의 위치 미세 조정 값
+ * @typedef {object} Offset
+ * @property {number} top 위쪽 여백
+ * @property {number} right 오른쪽 여백
+ */
+
+/**
+ * @description Sun Option
+ * @typedef {object} Option
+ * @property {string} color 색상
+ * @property {Offset} offset 태양의 위치 미세 조정 값
+ * @property {number} density 에니메이션 밀도
+ * @property {number} intensity 에니메이션 강도
+ * @property {number} fps 초당 프래임 개수
+ */
+
 const DEFAULT_RADIUS = 200;
 const DEFAULT_COLOR = '#ffb200';
 const DEFAULT_RIGHT_OFFSET = 0;
@@ -10,6 +27,10 @@ const DEFAULT_INTENSITY = 5;
 const DEFAULT_FPS = 30;
 
 class Sun {
+  /**
+   * @param {number} radius 반지름
+   * @param {Option} opts Sun Option
+   */
   constructor(radius, opts = {}) {
     this.radius = radius ?? DEFAULT_RADIUS;
     this.color = opts.color ?? DEFAULT_COLOR;
@@ -36,6 +57,10 @@ class Sun {
     }
   }
 
+  /**
+   * @param {number} stageWidth 변경된 화면 가로 크기
+   * @param {number} stageHeight 변경된 화면 세로 크기
+   */
   resize(stageWidth, stageHeight) {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
@@ -44,6 +69,10 @@ class Sun {
     this.y = this.radius + this.tOffset;
   }
 
+  /**
+   * @param {CanvasRenderingContext2D} ctx
+   * @param {number} t 애니메이션 타임
+   */
   draw(ctx, t) {
     if (t - this.time > this.fpsTime) {
       this.time = t;
@@ -63,6 +92,9 @@ class Sun {
     ctx.fill();
   }
 
+  /**
+   * @description 태양을 이루는 각 점들을 랜덤한 위치로 이동시킵니다.
+   */
   updatePoints() {
     this.orginPos.forEach((point, i) => {
       const x = point.x + Math.random() * this.intensity;

@@ -1,6 +1,25 @@
+import Curve from '../utils/quadratic/curve.js';
 import Point from '../utils/quadratic/point.js';
 
+/**
+ * @description 양의 위치 미세 조정 값
+ * @typedef {object} Offset
+ * @property {number} top 위쪽 여백
+ * @property {number} right 오른쪽 여백
+ * @property {number} bottom 아래쪽 여백
+ * @property {number} left 왼쪽 여백
+ */
+
 class Sheep {
+  /**
+   * @param {HTMLImageElement} img 양 이미지 Element
+   * @param {number} frame 이미지 프레임 수
+   * @param {number} fps 초당 프레임 수
+   * @param {number} width 가로 크기
+   * @param {number} height 세로 크기
+   * @param {Offset} offset 양의 위치 미세 조정 값
+   * @param {number} stageWidth 변경된 화면 가로 크기
+   */
   constructor(img, frame, fps, width, height, offset, stageWidth) {
     this.img = img;
 
@@ -26,10 +45,19 @@ class Sheep {
     this.fpsTime = 1000 / fps;
   }
 
+  /**
+   * @description 양이 현재 화면에서 보이고 있는지 여부를 반환합니다.
+   * @returns {boolean}
+   */
   get visible() {
     return this.point.x > -this.width;
   }
 
+  /**
+   * @param {CanvasRenderingContext2D} ctx
+   * @param {number} t 애니메이션 타임
+   * @param {Curve[]} curves 양이 위치할 Hill의 곡선 데이터 배열
+   */
   draw(ctx, t, curves) {
     this.point.x -= this.speed;
     const curve = this.getCurrentCurve(curves);
@@ -43,6 +71,9 @@ class Sheep {
     this.animate(ctx, curves);
   }
 
+  /**
+   * @param {CanvasRenderingContext2D} ctx
+   */
   animate(ctx) {
     ctx.save();
 
@@ -63,6 +94,11 @@ class Sheep {
     ctx.restore();
   }
 
+  /**
+   * @description 현재 양이 위치한 곡선 데이터를 반환합니다.
+   * @param {Curve[]} curves 양이 위치할 Hill의 곡선 데이터 배열
+   * @returns {Curve | null} 존재하지 않으면 null을 반환합니다.
+   */
   getCurrentCurve(curves) {
     let left = 0;
     let right = curves.length - 1;
