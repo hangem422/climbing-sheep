@@ -10,8 +10,10 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'prettier/prettier': 0,
     'import/extensions': 0,
-    'no-restricted-syntax': ['iterators/generators'],
+    'no-param-reassign': 0,
+    'object-curly-newline': 0,
+    'prettier/prettier': 'error',
+    'wrap-iife': 0,
   },
 };

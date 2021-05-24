@@ -71,6 +71,7 @@ class Hill {
     start.moveTo(start.x + this.speed);
     ctx.moveTo(start.x, start.y);
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const cur of this.points.generateValues(1)) {
       cur.moveTo(cur.x + this.speed);
 

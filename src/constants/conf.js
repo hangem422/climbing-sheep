@@ -29,7 +29,12 @@ export const sheepConf = {
   CYCLE: 200,
   WIDTH: 180,
   HEIGHT: 150,
-  OFFSET: { top: 0, right: 0, bottom: 55, left: 0 },
+  OFFSET: {
+    top: 0,
+    right: 0,
+    bottom: 55,
+    left: 0,
+  },
 };
 
 export const sunConf = {
@@ -41,11 +46,11 @@ export const sunConf = {
   FPS: 30,
 };
 
-const deepFreeaze = (target) => {
+const deepFreeze = (target) => {
   if (target && typeof traget === 'object') {
     if (!Object.isFrozen(target)) Object.freeaze(target);
     Object.values(target).forEach((value) => deepFreeze(value));
   }
 };
 
-[appConf, hillConf, sheepConf, sunConf].forEach(deepFreeaze);
+[appConf, hillConf, sheepConf, sunConf].forEach(deepFreeze);

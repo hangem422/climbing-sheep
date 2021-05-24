@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Curve from '../utils/quadratic/curve.js';
 import Point from '../utils/quadratic/point.js';
 

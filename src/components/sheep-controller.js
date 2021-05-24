@@ -24,7 +24,12 @@ const DEFAULT_FPS = 24;
 const DEFAULT_WIDTH = 360;
 const DEFAULT_HEIGHT = 380;
 const DEFAULT_CYCLE = 200;
-const DEFAULT_OFFSET = { top: 0, right: 0, bottom: 0, left: 0 };
+const DEFAULT_OFFSET = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+};
 
 class SheepController {
   /**
@@ -94,6 +99,7 @@ class SheepController {
     this.curCycle = (this.curCycle + 1) % this.cycle;
     if (this.curCycle === 0) this.addSheep();
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const node of this.items.generateNodes()) {
       const sheep = node.value;
 
