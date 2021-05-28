@@ -4,6 +4,8 @@
 
 ## 원본
 
+파일 구조와, 코드 스타일을 변경했습니다. 원본을 참고하고 싶으시면 아래 링크를 이용해주세요.
+
 - **원작자**: Interactive Developer
 - **링크**: [독학으로 고급 개발자 되는 방법](https://www.youtube.com/watch?v=hCHL7sydzn0&list=PLGf_tBShGSDNGHhFBT4pKFRMpiBrZJXCm&index=1)
 
