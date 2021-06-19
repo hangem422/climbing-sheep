@@ -47,8 +47,8 @@ export const sunConf = {
 };
 
 const deepFreeze = (target) => {
-  if (target && typeof traget === 'object') {
-    if (!Object.isFrozen(target)) Object.freeaze(target);
+  if (target && typeof target === 'object') {
+    if (!Object.isFrozen(target)) Object.freeze(target);
     Object.values(target).forEach((value) => deepFreeze(value));
   }
 };
